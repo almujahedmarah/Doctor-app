@@ -31,13 +31,12 @@ input {
 }
 
 .singup {
+  margin-left: 19ch;
+  padding: 2ch;
+
   background-color: rgba(24, 22, 22, 0.877);
-  width: 75px;
-  height: 40px;
+  width: 20%;
   border-radius: 60px;
-  color: rgba(245, 241, 241, 0.884);
-  font-size: 16px;
-  border: none;
   margin-top: 20px;
 }
 .s-input {

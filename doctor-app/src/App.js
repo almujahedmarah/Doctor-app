@@ -16,8 +16,8 @@ function App() {
        <Route path="/Login" element={<Login />}></Route> */}
        <Route path="/Doctorpag" element={<Doctorpag />}></Route>
       </Routes>
-    </div>
-  );
+      </div>
+)
 }
 
 export default App;
