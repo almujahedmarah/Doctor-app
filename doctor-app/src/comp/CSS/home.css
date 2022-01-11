@@ -1,0 +1,50 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&family=Lakki+Reddy&display=swap');
+body{
+    background :rgb(199, 193, 193);
+}
+
+
+.parent{
+    /* border: solid black; */
+    background:rgba(245, 248, 250, 0.897);
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    margin: 5ch;
+    padding: 3ch;
+    box-shadow: 14px 15px 3px 0px rgba(0,0,0,0.45);
+-webkit-box-shadow: 14px 15px 3px 0px rgba(0,0,0,0.45);
+-moz-box-shadow: 14px 15px 3px 0px rgba(0,0,0,0.45);
+}
+.partone ,.parttwo{
+    margin: 5ch;
+}
+.partone{
+    /* border:solid black; */
+    padding: 2ch;
+}
+.partone button{
+
+    padding: 2ch;
+    width: 20%;
+    margin-left: 19ch;
+    background-color: rgb(199, 193, 193);
+    border: none;
+    cursor: pointer;
+    font-family: cursive;
+    font-weight:bolder;
+    font-size:100%;
+    color:rgb(10, 70, 119);
+     
+}
+.title{
+    color:rgb(62, 129, 184);
+    font-size:700%;
+    font-family: 'Fuzzy';
+}
+
+
+.parttwo{
+    /* border:solid black;
+    padding: 2ch; */
+}
