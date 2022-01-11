@@ -1,20 +1,19 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&family=Lakki+Reddy&display=swap');
 body{
-    background :rgb(199, 193, 193);
+    background :rgba(218, 213, 213, 0.986);
 }
 
 
 .parent{
-    /* border: solid black; */
-    background:rgba(245, 248, 250, 0.897);
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    margin: 5ch;
-    padding: 3ch;
-    box-shadow: 14px 15px 3px 0px rgba(0,0,0,0.45);
--webkit-box-shadow: 14px 15px 3px 0px rgba(0,0,0,0.45);
--moz-box-shadow: 14px 15px 3px 0px rgba(0,0,0,0.45);
+     background:rgba(245, 248, 250, 0.897);
+     display: grid;
+     grid-template-columns: 2fr 1fr;
+     margin: 5ch;
+     padding: 11ch;
+     box-shadow: 14px 15px 3px 0px rgba(0,0,0,0.45);
+     -webkit-box-shadow: 14px 15px 3px 0px rgba(0,0,0,0.45);
+     -moz-box-shadow: 14px 15px 3px 0px rgba(0,0,0,0.45);
 }
 .partone ,.parttwo{
     margin: 5ch;
@@ -23,18 +22,17 @@ body{
     /* border:solid black; */
     padding: 2ch;
 }
-.partone button{
-
-    padding: 2ch;
-    width: 20%;
-    margin-left: 19ch;
-    background-color: rgb(199, 193, 193);
+.partone button{ 
+    background-color: rgb(224, 215, 215);
     border: none;
     cursor: pointer;
     font-family: cursive;
     font-weight:bolder;
     font-size:100%;
     color:rgb(10, 70, 119);
+    box-shadow: 6px 3px 3px 4px rgba(0,0,0,0.45);
+    -webkit-box-shadow: 6px 3px 3px 4px rgba(0,0,0,0.45);
+    -moz-box-shadow: 6px 3px 3px 4px rgba(0,0,0,0.45);
      
 }
 .title{
@@ -42,9 +40,50 @@ body{
     font-size:700%;
     font-family: 'Fuzzy';
 }
-
-
-.parttwo{
-    /* border:solid black;
-    padding: 2ch; */
+.parentTwo{
+     display: grid;
+     grid-template-columns: 1fr 2fr;
+    /* border:black solid; */
+    
+    width: 100%;
 }
+ 
+.BTN{
+    height: 75%;
+}
+.doctor{
+   background:none;
+   border:none;
+}
+
+.Info{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+ .appointment{
+    
+    height: 170px;
+    overflow: auto;
+    max-height: 250px;
+    /* padding: 1rem; */
+    overflow-y: auto;
+    direction: ltr;
+    scrollbar-color: #d4aa70 #e4e4e4;
+    scrollbar-width: thin;
+      /* border:black solid; */
+ }
+
+ .appointment::-webkit-scrollbar {
+    width: 15px;
+     
+  }
+  .appointment::-webkit-scrollbar-track {
+    background-color: #e4e4e4;
+    border-radius: 100px;
+  }
+  .appointment::-webkit-scrollbar-thumb {
+   
+    border-radius: 100px;
+    background-image: linear-gradient(180deg, #d0368a 0%, #708ad4 99%);
+    box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
+  }
