@@ -10,7 +10,7 @@ app.use("/appointment", Appointment);
 
 
 async function main() {
-    await mongoose.connect('mongodb+srv://user1:user2022@js.cj74d.mongodb.net/myFirstDatabase?retryWrites=true&w=majority');
+    await mongoose.connect('mongodb+srv://user1:user2022@js.cj74d.mongodb.net/doctorApp?retryWrites=true&w=majority');
   }
   main().catch((err) => console.log(err));
 

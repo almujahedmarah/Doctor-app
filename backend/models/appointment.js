@@ -13,7 +13,6 @@ const mongoose = require('mongoose');
     },
     doctorId:{
         type: String,
-        required:true,
     }
 },
 {timestamps:true}
