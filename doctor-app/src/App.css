@@ -1,0 +1,56 @@
+.sup-main {
+  display: flex;
+  justify-content: center;
+  height: 400px;
+  width: 35%;
+  box-shadow: 11px 12px 13px rgba(0, 0, 0, 0.61);
+  padding-top: 30px;
+  border-radius: 20px;
+  background-color: rgba(236, 233, 233, 0.123);
+  margin-bottom: 20px;
+}
+
+input {
+  width: 270px;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background-color: #f5f5f54d;
+}
+.input {
+  margin-top: 50px;
+}
+
+.name {
+  padding-left: 40px;
+}
+
+.singup {
+  background-color: rgba(24, 22, 22, 0.877);
+  width: 75px;
+  height: 40px;
+  border-radius: 60px;
+  color: rgba(245, 241, 241, 0.884);
+  font-size: 16px;
+  border: none;
+  margin-top: 20px;
+}
+.singup1{
+  background-color: rgba(24, 22, 22, 0.877);
+  width: 75px;
+  height: 40px;
+  border-radius: 60px;
+  color: rgba(245, 241, 241, 0.884);
+  font-size: 16px;
+  border: none;
+  margin-top: 20px;
+}
+.logsinup{
+  margin-top: 80px;
+  margin-left: 200px;
+}
+.s-input {
+  -top: 14px;
+
+}
