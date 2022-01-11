@@ -1,6 +1,14 @@
 import React from 'react'
+import { useNavigate } from "react-router-dom";
 
 export default function Sinup() {
+    const navigate= useNavigate()
+
+    const gotoLogin =()=>{
+        navigate('/Login')
+
+    }
+
     return (
         <div className='logsinup'>
             <div className="sup-main">
@@ -20,7 +28,7 @@ export default function Sinup() {
             <button className="singup" type="submit">Singup</button>
             </div>
             </div>
-            <button className="singup1" type="submit">Login</button>
+            <button className="singup" type="submit" onClick={()=>gotoLogin()} >Login</button>
         </div>
     )
 }

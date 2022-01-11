@@ -1,3 +1,7 @@
+*{
+  margin: 0;
+  padding: 0;
+}
 .sup-main {
   display: flex;
   justify-content: center;
@@ -36,21 +40,32 @@ input {
   border: none;
   margin-top: 20px;
 }
-.singup1{
-  background-color: rgba(24, 22, 22, 0.877);
-  width: 75px;
-  height: 40px;
-  border-radius: 60px;
-  color: rgba(245, 241, 241, 0.884);
-  font-size: 16px;
-  border: none;
-  margin-top: 20px;
-}
-.logsinup{
-  margin-top: 80px;
-  margin-left: 200px;
-}
 .s-input {
-  -top: 14px;
+  margin-top: 14px;
+}
+.oo {
+  margin-top: 40px;
+}
 
+.ss-in {
+  margin-top: 14px;
+}
+.nav {
+  background-color: rgba(14, 0, 0, 0.932);
+  height: 60px;
+}
+ul {
+  margin-left: 80px;
+  display: grid;
+  grid-template-columns: 4fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 1px;
+}
+.link {
+  color: rgb(241, 235, 226);
+  padding-top: 15px;
+  /* border: none; */
+  text-decoration: none;
+}
+.DOCTORTABL{
+  margin: 10%;
 }
