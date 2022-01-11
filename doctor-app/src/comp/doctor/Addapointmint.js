@@ -1,8 +1,8 @@
 import React from 'react'
-
 export default function Addapointmint() {
     return (
-        <div>
+        <div className='addandedetepage'>
+          <div>
                   <form
       className="addpro"
        
@@ -15,6 +15,7 @@ export default function Addapointmint() {
         <input type="text" />
         <button className="singup" type="submit">Added</button>
       </form>
+        </div>
         </div>
     )
 }

@@ -16,5 +16,5 @@ async function main() {
 
 app.listen(PORT , (err) =>{
     if(err) console.log("ERROR" + err)
-    console.log("listening on PORT" + PORT)
+    console.log("i work on PORT" + PORT)
 })

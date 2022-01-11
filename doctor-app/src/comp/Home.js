@@ -2,26 +2,21 @@
 
 import './CSS/home.css'
 import { Card ,Container,Button} from 'react-bootstrap';
-
+import Footer from './Footer';
 function Home() {
-    return ( <>
-    
+    return ( 
+    <div className='Home'> 
  
 
-<div className='parent'>
-
-<div className='partone'>
-    <h1 className='title'>Doctor App</h1>
-
-    <button className='singup' >Get Start</button>
-</div>
-
-<div className='parttwo'>
-
- 
- </div>
-
-</div>
+      <div className='homewelcom'>
+        <img width="500px" src="https://media.istockphoto.com/vectors/online-doctor-women-healthcare-concept-doctor-videocalling-on-a-vector-id1222063277?k=20&m=1222063277&s=612x612&w=0&h=hELWpR-7XmWUo3n9HwKY_2Eab4kZVAD5GYHjnezXnew=" />
+        <div className='homewelcomtext' >
+          <h1>Doctor App</h1>
+          <h6><b>in this app you can create a doctor and do the crud</b></h6>
+          <h6><b>and the doctor can add delet and edite the Appointment</b></h6>
+          <h6><b>this app is the best app</b></h6>
+        </div>
+      </div>
 
  {/*  */}
  <Container className='parentTwo'> 
@@ -75,11 +70,10 @@ function Home() {
 <br></br>
 <br></br>
 <br></br>
-<div><h1>Footer</h1></div>
+<Footer/>
  
- 
-
-    </> );
+</div>
+);
 }
 
 export default Home;

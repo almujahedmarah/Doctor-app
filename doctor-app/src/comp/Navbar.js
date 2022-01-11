@@ -11,7 +11,7 @@ function Navbar() {
               <ul>
                 {/* < Link  className="link"  to="/Sinup">{id ==undefined?<LoginIcon/>:< LogoutIcon onClick={logout}/>}</Link> */}
                 {/* < Link  className="link"  to="/Sinup"><LoginIcon/></Link> */}
-                < Link  className="link"  to="/Home"><HomeIcon/></Link>
+                < Link  className="link"  to="/"><HomeIcon/></Link>
                 < Link  className="link"  to="/Doctorpag">DD</Link>
                 
             </ul>

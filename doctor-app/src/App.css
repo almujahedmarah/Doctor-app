@@ -1,3 +1,4 @@
+
 *{
   margin: 0;
   padding: 0;
@@ -31,11 +32,10 @@ input {
 }
 
 .singup {
-  margin-left: 19ch;
-  padding: 2ch;
-
-  background-color: rgba(24, 22, 22, 0.877);
-  width: 20%;
+  margin-left: 5ch;
+  color:#ffff;
+  background-color: rgba(29, 25, 83, 0.877);
+  width: 80px;
   border-radius: 60px;
   margin-top: 20px;
 }
@@ -50,8 +50,7 @@ input {
   margin-top: 14px;
 }
 .nav {
-  background-color: rgba(14, 0, 0, 0.932);
-  height: 60px;
+  background-color: rgb(255, 255, 255);
 }
 ul {
   margin-left: 80px;
@@ -60,11 +59,65 @@ ul {
   grid-gap: 1px;
 }
 .link {
-  color: rgb(241, 235, 226);
+  color: rgb(37, 1, 41);
   padding-top: 15px;
-  /* border: none; */
+  border: none;
   text-decoration: none;
 }
 .DOCTORTABL{
-  margin: 10%;
+  background-color: rgb(255, 255, 255);
+  margin: 5%;
+  display: flex;
+  gap: 150px;
+}
+.Home{
+  background-color: rgb(255, 255, 255);
+}
+.homewelcom{
+  display: flex;
+  margin: 5%;
+  gap: 70px;
+  padding-left: 20px;
+}
+.homewelcomtext{
+  align-items: center;
+  text-align: center;
+  padding-top: 15%;
+  font-size: large;
+  color:rgb(53, 11, 83);
+  font-family: 'Comfortaa', cursive;
+}
+.footer{
+ padding-top: 20px;
+ padding-left: 40px;
+background-color: rgb(17, 10, 22);
+  display: grid;
+  grid-template-columns: 1fr 1fr  1fr;
+  font-size:x-small;
+  color: rgba(255, 255, 255, 0.808);
+}
+.footer1{
+ background-color: rgba(17, 10, 22, 0.836);
+}
+.aaaa{
+  background-color: rgb(255, 255, 255);
+  background-size: cover;
+}
+.Table{
+  text-align: center;
+  align-items: center;
+  padding-top: 20px;
+}
+.addpro {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  margin-left: 500px;
+  padding-top: 80px;
+}
+.addandedetepage{
+  background-image: url('https://i.ibb.co/8KJtL3j/1-znfgxxn.png');
+  background-size: cover;
+  /* margin-bottom: 400px; */
+  height: 500px;
+  width: 900px;
 }

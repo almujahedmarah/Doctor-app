@@ -4,6 +4,8 @@ import Sinup from './comp/doctor/Sinup'
 import Login from './comp/doctor/Login';
 import Home from './comp/Home'
 import Doctorpag from './comp/doctor/Doctorpag';
+import Edit from './comp/doctor/Edit'
+import Addapointmint from './comp/doctor/Addapointmint'
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function App() {
@@ -15,6 +17,8 @@ function App() {
        {/* <Route path="/Sinup" element={<Sinup />}></Route>
        <Route path="/Login" element={<Login />}></Route> */}
        <Route path="/Doctorpag" element={<Doctorpag />}></Route>
+       <Route path="/Edit" element={<Edit />}></Route>
+       <Route path="/Addapointmint" element={<Addapointmint />}></Route>
       </Routes>
       </div>
 )
