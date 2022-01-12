@@ -14,8 +14,6 @@ function App() {
       <Navbar />
       <Routes>
        <Route exact="true" path="/" element={<Home />}></Route>
-       {/* <Route path="/Sinup" element={<Sinup />}></Route>
-       <Route path="/Login" element={<Login />}></Route> */}
        <Route path="/Doctorpag" element={<Doctorpag />}></Route>
        <Route path="/Edit" element={<Edit />}></Route>
        <Route path="/Addapointmint" element={<Addapointmint />}></Route>
