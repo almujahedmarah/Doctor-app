@@ -11,38 +11,35 @@ router.get('/', (req, res) => {
     res.send("You cannot access this page")
 })
 
-router.get("/doctorGet", (req, res) => {
-    Doctors.find({}, (err, data) => {
+router.get("/:id", (req, res) => {
+    const id = req.params.id;
+    Doctors.find({_id: id}, (err, data) => {
         if(err) console.log(err);
         res.send(data);
         mongoose.connection.close;
     })
 })
 
-router.get("/doctorAdd", (req, res) => {
-    Doctors.create({
-        _id: req.body.id,
-        name: req.body.name,
-        speciality: req.body.speciality,
-    }, (err, res) => {
+router.post("/doctorAdd", (req, res) => {
+    const newDoctor = req.body;
+    Doctors.create(newDoctor, (err, res) => {
         if(err) console.log(err);
         mongoose.connection.close;
     })
 })
 
-router.get("/doctorUpdate", (req, res) => {
-    Doctors.updateOne({_id: req.body.id}, 
-        {
-            name: req.body.name,
-            speciality: req.body.speciality
-        }, (err, res) => {
+router.put("/:id", (req, res) => {
+    const id = req.params.id;
+    const updatedDoctor = req.body;
+    Doctors.updateOne({_id: id}, updatedDoctor, (err, res) => {
             if(err) console.log(err);
             mongoose.connection.close;
         })
 })
 
-router.get("/doctorDelete", (req, res) => {
-    Doctors.deleteOne({_id: req.body.id}, (err, res) => {
+router.delete("/:id", (req, res) => {
+    const id = req.params.id;
+    Doctors.deleteOne({_id: id}, (err, res) => {
         if(err) console.log(err);
         mongoose.connection.close;
         })
