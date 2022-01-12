@@ -8,7 +8,11 @@ router.use(express.json());
 
 
 router.get('/', (req, res) => {
-    res.send("You cannot access this page")
+    Doctors.find({}, (err, data) => {
+        if(err) console.log(err);
+        res.send(data);
+        mongoose.connection.close;
+    })
 })
 
 router.get("/:id", (req, res) => {
@@ -20,7 +24,7 @@ router.get("/:id", (req, res) => {
     })
 })
 
-router.post("/doctorAdd", (req, res) => {
+router.post("/", (req, res) => {
     const newDoctor = req.body;
     Doctors.create(newDoctor, (err, res) => {
         if(err) console.log(err);

@@ -13,13 +13,9 @@ async function main() {
 }
 main().catch((err) => console.log(err));
 
-// app.use("/", Appointment)
-// app.use("/", Doctors)
-app.use("/appointment", Appointment);
-app.use("/doctorGet", Doctors)
-app.use("/doctorAdd", Doctors)
-app.use("/doctorUpdate", Doctors)
-app.use("/doctorDelete", Doctors)
+app.use("/appointment", Appointment)
+app.use("/doctor", Doctors)
+
 
 
 
