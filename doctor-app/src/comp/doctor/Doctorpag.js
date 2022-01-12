@@ -7,11 +7,21 @@ import Footer from "../Footer";
 import axios from 'axios'
 import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import { Button , Modal,Form} from 'react-bootstrap';
 
 
 export default function Doctorpag() {
   const [opoim, setOpoim] = useState([])
   const navigate= useNavigate()
+  const [add, setadd] = useState({});
+  const [Date, setDate] = useState();
+  const [Name, setName] = useState();
+  const [Reason, setReason] = useState();
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
  
     useEffect(() => {
       axios.get("http://localhost:8000/appointment/")
@@ -19,7 +29,7 @@ export default function Doctorpag() {
         console.log(res.data);
         setOpoim(res.data)
       })
-     }, [])
+     }, [add])
 
 //======= update============================================================================================================
 
@@ -51,8 +61,28 @@ const addapoint=()=>{
   navigate(`/Addapointmint`);
 }
 
-const editpag = (id) => {
-  navigate(`/Edit`);
+const editpag = (e,id) => {
+  console.log(id)
+  e.preventDefault();
+
+  let Date = e.target[0].value;
+  let Name = e.target[1].value;
+  let Reason = e.target[2].value;
+  console.log(e);
+
+  axios
+    .put(`http://localhost:8000/appointment/${id}`, {
+      date: Date,
+      patientName: Name,
+      reasonForAppointment: Reason,
+    })
+    .then((res) => {
+      console.log(res.data);
+      setadd(res.data);
+      setShow(false)
+      updatePage();
+    });
+   
 };
 
   return (
@@ -72,20 +102,45 @@ const editpag = (id) => {
     </thead>
     <tbody>
     {opoim.map((item)=>(
-      
+      <>
       <tr>
         <td><p>{item.date}</p></td>
         <td><p>{item.patientName}</p></td>
         <td><p>{item.reasonForAppointment}</p></td>
-        <td><RemoveCircleOutlineIcon onClick={() => deletitem(item._id)}/><AddCircleOutlineIcon onClick={() => addapoint()}/><EditIcon onClick={() => editpag(item._id)}/></td>
+        <td><RemoveCircleOutlineIcon onClick={() => deletitem(item._id)}/><AddCircleOutlineIcon onClick={() => addapoint()}/><EditIcon  onClick={handleShow}/></td>
       </tr>
+    
+    <Modal
+    show={show}
+    onHide={handleClose}
+    backdrop="static"
+    keyboard={false}
+  >
+    <Modal.Header closeButton>
+      <Modal.Title>Edit Appointment</Modal.Title>
+    </Modal.Header>
 
+ <Modal.Body >
+     <Form onSubmit={(e) => {editpag(e, item._id)}}> 
+<label>Date</label><br/>
+<input type="text" /><br/>
+<label>Full Name</label><br/>
+<input type="text" /><br/>
+<label>Reason</label><br/>
+<input type="text" />
+       
+       <Button   variant="primary" type="submit"> Edit</Button>
+       </Form>
+    </Modal.Body>
+
+  </Modal></>
       ))}
   
       </tbody>
       </Table>
 
     </div>
+
     </div>
     <Footer/>
     </div>

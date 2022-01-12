@@ -11,7 +11,6 @@ className="addpro">
 <input type="text" />
 <label>Reason</label>
 <input type="text" />
-<button className="singup" type="submit">Edit</button>
 </form>
 </div>
     )

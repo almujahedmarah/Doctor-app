@@ -9,6 +9,7 @@ const Appointment = require("./routes/appointment")
 app.use("/appointment", Appointment);
 
 
+
 async function main() {
     await mongoose.connect('mongodb+srv://user1:user2022@js.cj74d.mongodb.net/doctorApp?retryWrites=true&w=majority');
   }

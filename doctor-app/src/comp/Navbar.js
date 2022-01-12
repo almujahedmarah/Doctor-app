@@ -12,7 +12,7 @@ function Navbar() {
                 {/* < Link  className="link"  to="/Sinup">{id ==undefined?<LoginIcon/>:< LogoutIcon onClick={logout}/>}</Link> */}
                 {/* < Link  className="link"  to="/Sinup"><LoginIcon/></Link> */}
                 < Link  className="link"  to="/"><HomeIcon/></Link>
-                < Link  className="link"  to="/Doctorpag">DD</Link>
+                < Link  className="link"  to="/Doctorpag">Doctor</Link>
                 
             </ul>
         </div>
