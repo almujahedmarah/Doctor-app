@@ -1,28 +1,25 @@
 
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import './CSS/home.css'
-import { Card ,Container,Button} from 'react-bootstrap';
+import { Card ,Container,Button, Modal,Form} from 'react-bootstrap';
 import Footer from './Footer';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import {useState,useEffect} from 'react'
-import { Button , Modal,Form} from 'react-bootstrap';
+// import { Button , Modal,Form} from 'react-bootstrap';
 
 function Home() {
   const [show, setShow] = useState(false);
-
+  const [drname,setdrname] = useState()
+  const navigate= useNavigate()
+  const [es, setEs] = useState()
+  const [dr, setdr] = useState([])
+  
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
- const [drname,setdrname] = useState()
- const [drname,setdrname] = useState()
-  const navigate= useNavigate()
- const [es, setEs] = useState()
-
-
-  const [dr, setdr] = useState([])
 
   useEffect(() => {
-    axios.get("/doctorGet")
+    axios.get("/doctorGet/")
     .then((res)=>{
       console.log(res.data);
       setdr(res.data)
@@ -36,8 +33,9 @@ function Home() {
 
     axios.post("doctorAdd", {name:Name,speciality:spa})
     .then((res)=>{
-      setShow(false)
+      console.log(res.data);
     })
+    setShow(false)
   }
     return ( 
     <div className='Home'> 
@@ -56,7 +54,7 @@ function Home() {
  {/*  */}
 <AddCircleOutlineIcon  onClick={handleShow}/>
  <Container>
- {dr.map((dr)=>{
+ {/* {dr.map((dr)=>{
    return( <>
    <Card border="primary" style={{ width: '18rem' }}>
      <Card.Header>Doctor</Card.Header>
@@ -91,56 +89,9 @@ function Home() {
 
   </Modal>
    </>)
- })}
+ })} */}
  </Container>
-   {/* <>
- <Container className='parentTwo'>
-<Card className='doctor'> 
-<AddCircleOutlineIcon />
-   <Card style={{ width: '17rem' ,height:'11rem'}}  >
-   <Button variant="secondary" >Add New Appointment</Button> 
-    <Card.Body>
-    <Card.Title>Doctor Name:</Card.Title>
-    <Card.Text>specialty</Card.Text>
-    </Card.Body>
-  </Card>
 
-
-
-</Card  >
-
-
-<Card className='appointment' style={{height:'11rem'}}>
-
-<AddCircleOutlineIcon onClick={() => addapoint()}/>
-
- 
-    <Card.Body className='Info'>
-    <h6>Date</h6>
-    <h6>Patient Name</h6>
-    <h6>Reason For Appointment</h6>
-      <Button variant="danger" className="BTN">Delete</Button>
-    </Card.Body>
-    
-    <Card.Body className='Info'>
-    <h6>Date</h6>
-    <h6>Patient Name</h6>
-    <h6>Reason For Appointment</h6>
-      <Button variant="danger" className="BTN">Delete</Button>
-    </Card.Body>
-
-<Card.Body className='Info'>
-    <h6>Date</h6>
-    <h6>Patient Name</h6>
-    <h6>Reason For Appointment</h6>
-      <Button variant="danger" className="BTN">Delete</Button>
-    </Card.Body>
-
-
-</Card>
-
-</Container> */}
-  {/* })} */}
 
 <br></br>
 <br></br>
