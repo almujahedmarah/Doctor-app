@@ -6,19 +6,45 @@ const Doctors = require("../models/doctors.js");
 router.use(express.urlencoded({extended: true}));
 router.use(express.json());
 
-async function main(){
-    await mongoose.connect("mongodb+srv://user1:user2022@js.cj74d.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
-}
 
-main().catch(err => console.log(err));
+router.get('/', (req, res) => {
+    res.send("You cannot access this page")
+})
 
-router.get("/getDoctors", (req, res) => {
-    Doctors.find({}, (err, data) => {
+router.get("/:id", (req, res) => {
+    const id = req.params.id;
+    Doctors.find({_id: id}, (err, data) => {
         if(err) console.log(err);
-        res.json(data);
+        res.send(data);
         mongoose.connection.close;
     })
 })
+
+router.post("/doctorAdd", (req, res) => {
+    const newDoctor = req.body;
+    Doctors.create(newDoctor, (err, res) => {
+        if(err) console.log(err);
+        mongoose.connection.close;
+    })
+})
+
+router.put("/:id", (req, res) => {
+    const id = req.params.id;
+    const updatedDoctor = req.body;
+    Doctors.updateOne({_id: id}, updatedDoctor, (err, res) => {
+            if(err) console.log(err);
+            mongoose.connection.close;
+        })
+})
+
+router.delete("/:id", (req, res) => {
+    const id = req.params.id;
+    Doctors.deleteOne({_id: id}, (err, res) => {
+        if(err) console.log(err);
+        mongoose.connection.close;
+        })
+})
+
 
 
 module.exports = router;
