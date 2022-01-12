@@ -1,24 +1,46 @@
-import './App.css';
-import Navbar from './comp/Navbar';
-import Sinup from './comp/doctor/Sinup'
-import Login from './comp/doctor/Login';
-import Home from './comp/Home'
-import Doctorpag from './comp/doctor/Doctorpag';
-import Edit from './comp/doctor/Edit'
-import Addapointmint from './comp/doctor/Addapointmint'
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import LogoutIcon from '@mui/icons-material/Logout';
+import LoginIcon from '@mui/icons-material/Login';
+import Sinup from './comp/Sinup';
+import Home from './comp/Home';
+import Doctorpag from './comp/Doctorpag';
+import MyAppointment from "./comp/MyAppointment"
+import HomeIcon from '@mui/icons-material/Home';
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <Routes>
-       <Route exact="true" path="/" element={<Home />}></Route>
-       <Route path="/Doctorpag" element={<Doctorpag />}></Route>
-       <Route path="/Edit" element={<Edit />}></Route>
-       <Route path="/Addapointmint" element={<Addapointmint />}></Route>
-      </Routes>
-      </div>
+    <div className='nav'>
+
+  
+<BrowserRouter>
+<ul >
+  <li>
+  < Link  className="link"  to="/"><HomeIcon/></Link>
+  </li>
+  <li>
+    <Link to="/doctor">Doctor</Link>
+  </li>
+  <li>
+  <Link to="/MyAppointment">My Appointment</Link>
+</li>
+  <li>
+    <Link to="/signin">SignIn</Link>
+  </li>
+
+
+  <li>
+    <Link to="/signup">SignUp</Link>
+  </li>
+</ul>
+
+<Routes>
+  <Route path="/" element={<Home />}></Route>
+  <Route path="/doctor" element={<Doctorpag />}></Route>
+  <Route path="/MyAppointment" element={<MyAppointment />}></Route>
+</Routes>
+</BrowserRouter>
+</div>
+
 )
 }
 

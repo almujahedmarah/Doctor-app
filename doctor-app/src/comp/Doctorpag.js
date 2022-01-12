@@ -3,7 +3,7 @@ import Table from 'react-bootstrap/Table'
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import EditIcon from '@mui/icons-material/Edit';
-import Footer from "../Footer";
+import Footer from "./Footer";
 import axios from 'axios'
 import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
@@ -94,6 +94,7 @@ const editpag = (e,id) => {
   <Table responsive="sm">
     <thead>
       <tr>
+        
         <th >Date</th>
         <th>Full Name</th>
         <th>Reason</th>

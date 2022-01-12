@@ -55,7 +55,7 @@ input {
 ul {
   margin-left: 80px;
   display: grid;
-  grid-template-columns: 4fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 1px;
 }
 .link {
