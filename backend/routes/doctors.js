@@ -24,6 +24,7 @@ router.get("/:id", (req, res) => {
     })
 })
 
+
 router.post("/", (req, res) => {
     const newDoctor = req.body;
     Doctors.create(newDoctor, (err, res) => {
