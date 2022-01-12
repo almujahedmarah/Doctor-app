@@ -90,7 +90,7 @@ const editpag = (e,id) => {
     <div className="DOCTORTABL">
       <img width="500px" src="https://media.istockphoto.com/vectors/online-doctor-women-healthcare-concept-icon-set-doctor-videocalling-vector-id1222062036?k=20&m=1222062036&s=612x612&w=0&h=HJ24L_Cxve37T0H7O2Vqp04dmVcdpY7IRfhZuNlA5gQ="/>
       <div className="Table">
-  
+      <AddCircleOutlineIcon onClick={() => addapoint()}/>
   <Table responsive="sm">
     <thead>
       <tr>
@@ -107,7 +107,7 @@ const editpag = (e,id) => {
         <td><p>{item.date}</p></td>
         <td><p>{item.patientName}</p></td>
         <td><p>{item.reasonForAppointment}</p></td>
-        <td><RemoveCircleOutlineIcon onClick={() => deletitem(item._id)}/><AddCircleOutlineIcon onClick={() => addapoint()}/><EditIcon  onClick={handleShow}/></td>
+        <td><RemoveCircleOutlineIcon onClick={() => deletitem(item._id)}/><EditIcon  onClick={handleShow}/></td>
       </tr>
     
     <Modal
