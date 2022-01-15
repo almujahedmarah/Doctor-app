@@ -23,9 +23,10 @@ export default function MyAppointment() {
   const [loading, setLoading] = useState(true);
   const [show, setShow] = useState(false);
   const [doctor, setDoctor] = useState();
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const [data, setData] = useState({});
+  
+  // const handleClose = () => setShow(false);
+  // const handleShow = () => setShow(true);
 
   
   useEffect(() => {
@@ -42,12 +43,7 @@ export default function MyAppointment() {
   }, []);
 
 
-  // useEffect(() => {
-  //   axios.get(`/allAppointment/patientId`).then((res) => {
-  //     console.log( "appointment ==>",res.data);
-  //     setOpoim(res.data);
-  //   });
-  // }, [add]);
+
 
   //======= update============================================================================================================
 
@@ -66,39 +62,38 @@ export default function MyAppointment() {
   //========= delet =========================================================================================================
 
   const deletitem = (_id) => {
-    axios.delete(`/deleteAppointment/:patientId/:doctorId/:appointmentId`).then(async (res) => {
+    const cookies = document.cookie.split("patientId=");
+    const patientId = cookies[1];
+    axios.delete(`/deleteAppointment/${patientId}/${data.dortorId}/${_id}`, data).then(async (res) => {
       console.log(res.data);
       updatePage();
     });
   };
 
-  //========= add and edite ==================================================================================================
-  // const addapoint = () => {
-  //   navigate(``);
+  //========= edite ==================================================================================================
+
+  // const editpag = (e, id) => {
+  //   console.log(id);
+  //   e.preventDefault();
+
+  //   let Date = e.target[0].value;
+  //   let Name = e.target[1].value;
+  //   let Reason = e.target[2].value;
+  //   console.log(e);
+
+  //   axios
+  //     .put(``, {
+  //       date: Date,
+  //       patientName: Name,
+  //       reasonForAppointment: Reason,
+  //     })
+  //     .then((res) => {
+  //       console.log(res.data);
+  //       setadd(res.data);
+  //       setShow(false);
+  //       updatePage();
+  //     });
   // };
-
-  const editpag = (e, id) => {
-    console.log(id);
-    e.preventDefault();
-
-    let Date = e.target[0].value;
-    let Name = e.target[1].value;
-    let Reason = e.target[2].value;
-    console.log(e);
-
-    axios
-      .put(``, {
-        date: Date,
-        patientName: Name,
-        reasonForAppointment: Reason,
-      })
-      .then((res) => {
-        console.log(res.data);
-        setadd(res.data);
-        setShow(false);
-        updatePage();
-      });
-  };
   if (loading)
   return (
     <div className="loading">
@@ -140,7 +135,11 @@ export default function MyAppointment() {
                     </td>
                     <td>
                       <RemoveCircleOutlineIcon
-                        onClick={() => deletitem(item._id)}
+                          onClick={() =>{ deletitem(item._id)
+                          data.dortorId=item.doctorId
+                          setData(data)}
+                        }
+        
                       />
                       {
                       // <EditIcon onClick={handleShow} />
