@@ -8,26 +8,46 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Modal, Form } from "react-bootstrap";
+import { Circles } from "react-loading-icons";
+
 
 export default function MyAppointment() {
   const [opoim, setOpoim] = useState([]);
   const navigate = useNavigate();
   const [add, setadd] = useState({});
   const [Date, setDate] = useState();
+  const [AppointmentData, setAppointmentData] = useState({});
+  const [appointment, setAppointment] = useState();
   const [Name, setName] = useState();
   const [Reason, setReason] = useState();
-
+  const [loading, setLoading] = useState(true);
   const [show, setShow] = useState(false);
+  const [doctor, setDoctor] = useState();
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  
   useEffect(() => {
-    axios.get("http://localhost:8000/appointment/").then((res) => {
+    
+    const cookies = document.cookie.split("patientId=");
+    const patientId = cookies[1];
+    axios.get(`/api/patient/allAppointment/${patientId}`).then((res) => {
       console.log(res.data);
-      setOpoim(res.data);
+      setDoctor(res.data);
+      console.log(res.data.appointments);
+      setAppointment(res.data.appointments);
+      setLoading(false);
     });
-  }, [add]);
+  }, []);
+
+
+  // useEffect(() => {
+  //   axios.get(`/allAppointment/patientId`).then((res) => {
+  //     console.log( "appointment ==>",res.data);
+  //     setOpoim(res.data);
+  //   });
+  // }, [add]);
 
   //======= update============================================================================================================
 
@@ -46,16 +66,16 @@ export default function MyAppointment() {
   //========= delet =========================================================================================================
 
   const deletitem = (_id) => {
-    axios.delete(``).then(async (res) => {
+    axios.delete(`/deleteAppointment/:patientId/:doctorId/:appointmentId`).then(async (res) => {
       console.log(res.data);
       updatePage();
     });
   };
 
   //========= add and edite ==================================================================================================
-  const addapoint = () => {
-    navigate(``);
-  };
+  // const addapoint = () => {
+  //   navigate(``);
+  // };
 
   const editpag = (e, id) => {
     console.log(id);
@@ -79,7 +99,12 @@ export default function MyAppointment() {
         updatePage();
       });
   };
-
+  if (loading)
+  return (
+    <div className="loading">
+      <Circles stroke="rgb(50, 93, 141)" />
+    </div>
+  );
   return (
     <div className="aaaa">
       <div className="DOCTORTABL">
@@ -88,19 +113,21 @@ export default function MyAppointment() {
           src="https://media.istockphoto.com/vectors/online-doctor-women-healthcare-concept-icon-set-doctor-videocalling-vector-id1222062036?k=20&m=1222062036&s=612x612&w=0&h=HJ24L_Cxve37T0H7O2Vqp04dmVcdpY7IRfhZuNlA5gQ="
         />
         <div className="Table">
-          <AddCircleOutlineIcon onClick={() => addapoint()} />
           <Table responsive="sm">
             <thead>
               <tr>
                 <th>Date</th>
                 <th>Full Name</th>
                 <th>Reason</th>
-                <th>Action</th>
+                <th>Delete</th>
               </tr>
             </thead>
             <tbody>
-              {opoim.map((item) => (
-                <>
+              {
+                appointment.map((item) => {
+                  // let d = new Date(item.date);
+                  return(
+                
                   <tr>
                     <td>
                       <p>{item.date}</p>
@@ -115,49 +142,59 @@ export default function MyAppointment() {
                       <RemoveCircleOutlineIcon
                         onClick={() => deletitem(item._id)}
                       />
-                      <EditIcon onClick={handleShow} />
+                      {
+                      // <EditIcon onClick={handleShow} />
+                      }
                     </td>
                   </tr>
 
-                  <Modal
-                    show={show}
-                    onHide={handleClose}
-                    backdrop="static"
-                    keyboard={false}
-                  >
-                    <Modal.Header closeButton>
-                      <Modal.Title>Edit Appointment</Modal.Title>
-                    </Modal.Header>
-
-                    <Modal.Body>
-                      <Form
-                        onSubmit={(e) => {
-                          editpag(e, item._id);
-                        }}
-                      >
-                        <label>Date</label>
-                        <br />
-                        <input type="text" />
-                        <br />
-                        <label>Full Name</label>
-                        <br />
-                        <input type="text" />
-                        <br />
-                        <label>Reason</label>
-                        <br />
-                        <input type="text" />
-
-                        <Button variant="primary" type="submit">
-                          {" "}
-                          Edit
-                        </Button>
-                      </Form>
-                    </Modal.Body>
-                  </Modal>
-                </>
-              ))}
+                 
+               
+                     )
+                    
+                    })
+            
+            }
             </tbody>
           </Table>
+{
+        //   <Modal
+        //   show={show}
+        //   onHide={handleClose}
+        //   backdrop="static"
+        //   keyboard={false}
+        // >
+        //   <Modal.Header closeButton>
+        //     <Modal.Title>Edit Appointment</Modal.Title>
+        //   </Modal.Header>
+
+        //   <Modal.Body>
+        //     <Form
+        //       onSubmit={(e) => {
+        //         editpag(e, item._id);
+        //       }}
+        //     >
+        //       <label>Date</label>
+        //       <br />
+        //       <input type="text" />
+        //       <br />
+        //       <label>Full Name</label>
+        //       <br />
+        //       <input type="text" />
+        //       <br />
+        //       <label>Reason</label>
+        //       <br />
+        //       <input type="text" />
+
+        //       <Button variant="primary" type="submit">
+        //         {" "}
+        //         Edit
+        //       </Button>
+        //     </Form>
+        //   </Modal.Body>
+        // </Modal>
+
+            }
         </div>
       </div>
       <Footer />

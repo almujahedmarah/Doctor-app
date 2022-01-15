@@ -14,6 +14,16 @@
   background-color: rgba(236, 233, 233, 0.123);
   margin-bottom: 20px;
 }
+.logsinup{
+  margin: 10%;
+  display: flex;
+  gap:100px;
+}
+.loading{
+  display: flex;
+  justify-content:center;
+  margin-top: 10%;
+}
 
 input {
   width: 270px;
@@ -53,13 +63,14 @@ input {
   background-color: rgb(255, 255, 255);
 }
 ul {
+  padding-top: 20px;
   margin-left: 80px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 1px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  list-style: none;
 }
 .link {
-  color: rgb(37, 1, 41);
+  color: rgb(16, 2, 17);
   padding-top: 15px;
   border: none;
   text-decoration: none;

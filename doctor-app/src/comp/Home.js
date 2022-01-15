@@ -30,7 +30,7 @@ function Home() {
   
 
   useEffect(() => {
-    console.log('res');
+    // console.log('res');
     axios.get("/doctor")
     .then((res)=>{
       console.log(res.data);

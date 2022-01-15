@@ -23,6 +23,7 @@
     "express": "^4.17.2",
     "mongoose": "^6.1.6",
     "nodemon": "^2.0.15",
-    "randomstring": "^1.2.1"
+    "randomstring": "^1.2.1",
+    "react-loading-icons": "^1.0.8"
   }
 }

@@ -1,19 +1,34 @@
 import LogoutIcon from '@mui/icons-material/Logout';
 import LoginIcon from '@mui/icons-material/Login';
 import Sinup from './comp/Sinup';
+import Login from './comp/Login';
 import Home from './comp/Home';
 import Doctorpag from './comp/Doctorpag';
 import MyAppointment from "./comp/MyAppointment"
 import HomeIcon from '@mui/icons-material/Home';
+import "./App.css";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+// import {Navbar} ''
+// import { Navbar, Container, Nav } from "react-bootstrap";
+
 
 function App() {
   return (
-    <div className='nav'>
+    <div>
 
-  
 <BrowserRouter>
-<ul >
+{/* <Navbar bg="light" variant="light">
+    <Container>
+    <Navbar.Brand href="#home"> < Link  className="link"  to="/"><HomeIcon/></Link></Navbar.Brand>
+    <Nav className="me-auto">
+      <Nav.Link href="#home">    <Link to="/doctor">Doctor</Link></Nav.Link>
+      <Nav.Link href="#features">  <Link to="/MyAppointment">My Appointment</Link></Nav.Link>
+      <Nav.Link href="#pricing">    <Link to="/signin">SignIn</Link></Nav.Link>
+    </Nav>
+    </Container>
+  </Navbar> */}
+{/* ================================= */}
+<ul>
   <li>
   < Link  className="link"  to="/"><HomeIcon/></Link>
   </li>
@@ -27,7 +42,6 @@ function App() {
     <Link to="/signin">SignIn</Link>
   </li>
 
-
   <li>
     <Link to="/signup">SignUp</Link>
   </li>
@@ -37,6 +51,8 @@ function App() {
   <Route path="/" element={<Home />}></Route>
   <Route path="/doctor" element={<Doctorpag />}></Route>
   <Route path="/MyAppointment" element={<MyAppointment />}></Route>
+  <Route path="/signin" element={<Login />}></Route>
+  <Route path="/signup" element={<Sinup />}></Route>
 </Routes>
 </BrowserRouter>
 </div>

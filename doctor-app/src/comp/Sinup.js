@@ -28,7 +28,7 @@ export default function Sinup() {
             <button className="singup" type="submit">Singup</button>
             </div>
             </div>
-            <button className="singup" type="submit" onClick={()=>gotoLogin()} >Login</button>
+            <img width="500px" src="https://media.istockphoto.com/vectors/online-doctor-women-healthcare-concept-icon-set-doctor-videocalling-vector-id1222425820?k=20&m=1222425820&s=612x612&w=0&h=PUeDd8QbdtUbyUCAga2tftMeIqFgDcjiYdRLURGWpQs="/>
         </div>
     )
 }
