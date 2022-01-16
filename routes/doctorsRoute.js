@@ -69,7 +69,9 @@ router.post("/signIn", async (req, res) => {
   }
 
   if (doctorExist.password == password) {
-    res.json(doctorExist._id);
+    // res.json(doctorExist._id);
+    res.cookie("doctorId",doctorExist._id.toString())
+    res.send("done")
   } else {
     res.send("invalid email/password");
     return;

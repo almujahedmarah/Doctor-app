@@ -66,8 +66,10 @@ ul {
   padding-top: 20px;
   margin-left: 80px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   list-style: none;
+  color: rgb(16, 2, 17);
+  
 }
 .link {
   color: rgb(16, 2, 17);

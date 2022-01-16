@@ -8,9 +8,8 @@ import MyAppointment from "./comp/MyAppointment"
 import HomeIcon from '@mui/icons-material/Home';
 import "./App.css";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-// import {Navbar} ''
-// import { Navbar, Container, Nav } from "react-bootstrap";
-
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+import DrSingin from './comp/DrSingin'
 
 function App() {
   return (
@@ -45,6 +44,9 @@ function App() {
   <li>
     <Link to="/signup">SignUp</Link>
   </li>
+  <li>
+    <Link to="/DrSingin"><AdminPanelSettingsIcon /></Link>
+  </li>
 </ul>
 
 <Routes>
@@ -53,6 +55,7 @@ function App() {
   <Route path="/MyAppointment" element={<MyAppointment />}></Route>
   <Route path="/signin" element={<Login />}></Route>
   <Route path="/signup" element={<Sinup />}></Route>
+  <Route path="/DrSingin" element={<DrSingin />}></Route>
 </Routes>
 </BrowserRouter>
 </div>

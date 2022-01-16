@@ -2,11 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
+
 
 export default function Login() {
   const navigate = useNavigate();
@@ -87,7 +83,7 @@ export default function Login() {
                 />
               </div>
               {/* ============================================================= */}
-              <FormControl component="fieldset">
+              {/* <FormControl component="fieldset">
                 <FormLabel component="legend"></FormLabel>
                 <RadioGroup
                   row
@@ -109,7 +105,7 @@ export default function Login() {
                 
              
                 </RadioGroup>
-              </FormControl>
+              </FormControl> */}
               {/* ============================================================= */}
             </div>
             <button className="singup" type="submit">

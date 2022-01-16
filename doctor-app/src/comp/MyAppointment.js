@@ -30,17 +30,9 @@ export default function MyAppointment() {
 
   
   useEffect(() => {
+    updatePage();
     
-    const cookies = document.cookie.split("patientId=");
-    const patientId = cookies[1];
-    axios.get(`/api/patient/allAppointment/${patientId}`).then((res) => {
-      console.log(res.data);
-      setDoctor(res.data);
-      console.log(res.data.appointments);
-      setAppointment(res.data.appointments);
-      setLoading(false);
-    });
-  }, []);
+    }, []);
 
 
 
@@ -48,24 +40,39 @@ export default function MyAppointment() {
   //======= update============================================================================================================
 
   const updatePage = () => {
-    axios
-      .get("")
-      .then((res) => {
-        console.log(res.data);
-        setOpoim(res.data);
-      })
-      .catch((error) => {
-        console.log(error.res);
+    
+    if(document.cookie.includes("patientId")){
+      const cookies = document.cookie.split("patientId=");
+      const patientId = cookies[1];
+      axios.get(`/api/patient/allAppointment/${patientId}`).then((res) => {
+        // console.log(res.data);
+        setDoctor(res.data);
+        console.log(res.data.appointments);
+        setAppointment(res.data.appointments);
+        setLoading(false);
       });
+    }else if(document.cookie.includes("doctorId")){
+      const cookies = document.cookie.split("doctorId=");
+      const doctorId = cookies[1];
+      // console.log(doctorId);
+      axios.get(`/api/doctor/allAppointment/${doctorId}`).then((res) => {
+        // console.log(res.data);
+        setDoctor(res.data);
+        console.log(res.data.appointments);
+        setAppointment(res.data.appointments);
+        setLoading(false);
+      });
+
+    }
   };
 
   //========= delet =========================================================================================================
 
-  const deletitem = (_id) => {
-    const cookies = document.cookie.split("patientId=");
-    const patientId = cookies[1];
-    axios.delete(`/deleteAppointment/${patientId}/${data.dortorId}/${_id}`, data).then(async (res) => {
-      console.log(res.data);
+  const deletitem = (patientId,AppointmentId,doctorId) => {
+   
+    axios.delete(`api/patient/deleteAppointment/${patientId}/${doctorId}/${AppointmentId}`).then((res) => {
+    
+      // if(res.data === "deleted")
       updatePage();
     });
   };
@@ -135,9 +142,13 @@ export default function MyAppointment() {
                     </td>
                     <td>
                       <RemoveCircleOutlineIcon
-                          onClick={() =>{ deletitem(item._id)
-                          data.dortorId=item.doctorId
-                          setData(data)}
+                          onClick={async() =>{
+                            setLoading(true);
+                             deletitem(item.patientId,item.AppointmentId,item.doctorId);
+                            //  updatePage();
+                          // data.dortorId=item.doctorId
+                          // setData(data)
+                        }
                         }
         
                       />
