@@ -5,7 +5,11 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "build": "cd doctor-app && npm run build",
+    "install-client": "cd doctor-app && npm install",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run install-client && npm run build",
+    "start": "nodemon app.js",
+    "client": "cd doctor-app && npm start"
   },
   "repository": {
     "type": "git",
